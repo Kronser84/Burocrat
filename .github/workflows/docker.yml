@@ -1,6 +1,5 @@
 cd /srv/apps/mybot
-mkdir -p .github/workflows
-tee .github/workflows/docker.yml >/dev/null <<'YAML'
+cat > .github/workflows/docker.yml <<'YAML'
 name: Build and Push
 on:
   push:
@@ -24,7 +23,3 @@ jobs:
           push: true
           tags: ghcr.io/kronser84/burocrat:latest
 YAML
-
-git add .github/workflows/docker.yml
-git commit -m "fix CI yaml"
-git push
